@@ -1,6 +1,7 @@
 package vasilivanov.entities;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 @Table(name = "locations")
@@ -10,8 +11,8 @@ public class Location {
   private long id;
   private String name;
   private String address;
-  @OneToOne(mappedBy = "location")
-  private Event event;
+  @OneToMany(mappedBy = "location")
+  private Set<Event> events;
 
   public Location() {
   }
@@ -41,11 +42,15 @@ public class Location {
     this.address = address;
   }
 
-  public Event getEvent() {
-    return event;
+  public Set<Event> getEvent() {
+    return events;
   }
 
-  public void setEvent(Event event) {
-    this.event = event;
+  public void setEvent(Set<Event> events) {
+    this.events = events;
+  }
+
+  public void addEvent(Event event) {
+    this.events.add(event);
   }
 }

@@ -18,7 +18,7 @@ public class Event {
   @Enumerated(EnumType.STRING)
   private EventType eventType;
   private int maxPartecipants;
-  @OneToOne
+  @ManyToOne
   @JoinColumn(name = "location_id")
   private Location location;
   @OneToMany(mappedBy = "event", cascade = CascadeType.ALL)

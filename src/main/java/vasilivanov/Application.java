@@ -40,7 +40,7 @@ public class Application {
 //      ud.save(user1);
 //      ld.save(location1);
 //      pd.save(partecipation1);
-      ed.deleteEventById(10);
+//      ed.deleteEventById(10);
 
     } catch (Exception ex) {
       System.err.println(ex.getMessage());
