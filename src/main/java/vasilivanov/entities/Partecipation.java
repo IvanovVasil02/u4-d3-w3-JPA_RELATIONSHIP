@@ -1,5 +1,7 @@
 package vasilivanov.entities;
 
+import vasilivanov.enums.PartecipationStatus;
+
 import javax.persistence.*;
 
 @Entity
@@ -11,6 +13,8 @@ public class Partecipation {
   @ManyToOne
   @JoinColumn(name = "user_id")
   private User user;
+  @Enumerated(EnumType.STRING)
+  private PartecipationStatus status;
 
   @OneToOne
   @JoinColumn(name = "event_id")
@@ -19,10 +23,12 @@ public class Partecipation {
   public Partecipation() {
   }
 
-  public Partecipation(User user, Event event) {
+  public Partecipation(User user, Event event, PartecipationStatus status) {
     this.user = user;
     this.event = event;
+    this.status = status;
   }
+
 
   public long getId() {
     return id;

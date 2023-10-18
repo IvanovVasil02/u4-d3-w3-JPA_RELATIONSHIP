@@ -16,16 +16,15 @@ public class Location {
   public Location() {
   }
 
-  public Location(String name, String address, Event event) {
+  public Location(String name, String address) {
     this.name = name;
     this.address = address;
-    this.event = event;
   }
 
   public long getId() {
     return id;
   }
-  
+
   public String getName() {
     return name;
   }

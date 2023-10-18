@@ -1,8 +1,8 @@
 package vasilivanov;
 
-import vasilivanov.entities.EventDAO;
-import vasilivanov.entities.User;
-import vasilivanov.entities.UserDAO;
+import vasilivanov.entities.*;
+import vasilivanov.enums.EventType;
+import vasilivanov.enums.PartecipationStatus;
 import vasilivanov.enums.Sex;
 
 import javax.persistence.EntityManager;
@@ -17,12 +17,30 @@ public class Application {
     System.out.println("Hello World!");
 
     try {
-
-      EventDAO sd = new EventDAO(em);
+      LocationDAO ld = new LocationDAO(em);
+      EventDAO ed = new EventDAO(em);
       UserDAO ud = new UserDAO(em);
-      User user1 = new User("Franco", "Primo", "franco@gmail.com", "27/10/2002", Sex.MALE);
+      PartecipationDAO pd = new PartecipationDAO(em);
 
-      ud.save(user1);
+      Location location = ld.getById(9);
+
+      Event event1 = new Event("event2", "27/10/2027", EventType.PUBLIC, 50, location);
+
+      Location location1 = new Location("location2", "Roma");
+
+      User user1 = new User("Gianni", "Secondo", "gianni@gmail.com", "27/10/2002", Sex.MALE);
+
+      Event eventDb = ed.getById(10);
+      User userDb = ud.getById(11);
+
+
+      Partecipation partecipation1 = new Partecipation(userDb, eventDb, PartecipationStatus.TO_BE_CONFIRMED);
+
+//      sd.save(event1);
+//      ud.save(user1);
+//      ld.save(location1);
+//      pd.save(partecipation1);
+      
     } catch (Exception ex) {
       System.err.println(ex.getMessage());
     } finally {

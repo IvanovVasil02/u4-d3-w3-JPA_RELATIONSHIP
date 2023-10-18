@@ -24,12 +24,13 @@ public class Event {
   public Event() {
   }
 
-  public Event(String title, String eventDate, EventType eventType, int maxPartecipants) {
+  public Event(String title, String eventDate, EventType eventType, int maxPartecipants, Location location_id) {
     DateTimeFormatter formatter = DateTimeFormatter.ofPattern("d/MM/yyyy");
     this.title = title;
     this.eventDate = LocalDate.parse(eventDate, formatter);
     this.eventType = eventType;
     this.maxPartecipants = maxPartecipants;
+    this.location = location_id;
   }
 
   public long getId() {
