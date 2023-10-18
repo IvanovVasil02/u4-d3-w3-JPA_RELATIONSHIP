@@ -5,7 +5,6 @@ import vasilivanov.enums.Sex;
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -21,7 +20,7 @@ public class User {
   @Enumerated(EnumType.STRING)
   private Sex sex;
   @OneToMany(mappedBy = "user")
-  private List<Partecipation> partecipationList = new ArrayList<>();
+  private List<Partecipation> partecipationList;
 
   public User() {
   }
@@ -86,5 +85,15 @@ public class User {
 
   public void setPartecipationList(List<Partecipation> partecipationList) {
     this.partecipationList = partecipationList;
+  }
+
+  @Override
+  public String toString() {
+    return " name='" + name + '\'' +
+            ", surname='" + surname + '\'' +
+            ", email='" + email + '\'' +
+            ", birthDate=" + birthDate +
+            ", sex=" + sex +
+            '}';
   }
 }

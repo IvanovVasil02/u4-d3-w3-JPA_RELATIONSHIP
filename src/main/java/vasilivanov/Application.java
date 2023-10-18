@@ -30,17 +30,21 @@ public class Application {
 
       User user1 = new User("Gianni", "Secondo", "gianni@gmail.com", "27/10/2002", Sex.MALE);
 
-      Event eventDb = ed.getById(10);
+      Event eventDb = ed.getById(3);
       User userDb = ud.getById(11);
 
 
       Partecipation partecipation1 = new Partecipation(userDb, eventDb, PartecipationStatus.TO_BE_CONFIRMED);
 
-//      sd.save(event1);
+//      ed.save(event1);
 //      ud.save(user1);
 //      ld.save(location1);
 //      pd.save(partecipation1);
-//      ed.deleteEventById(10);
+//      ed.deleteEventById(3);
+
+
+      userDb.getPartecipationList().forEach(System.out::println);
+
 
     } catch (Exception ex) {
       System.err.println(ex.getMessage());
@@ -48,6 +52,5 @@ public class Application {
       em.close();
       emf.close();
     }
-
   }
 }

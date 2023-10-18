@@ -49,4 +49,13 @@ public class Partecipation {
   public void setEvent(Event event) {
     this.event = event;
   }
+
+  @Override
+  public String toString() {
+    return "Partecipation{" +
+            user +
+            ", status=" + status +
+            ", event=" + event +
+            '}';
+  }
 }

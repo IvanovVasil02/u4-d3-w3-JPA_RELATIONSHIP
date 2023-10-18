@@ -72,14 +72,15 @@ public class Event {
     this.maxPartecipants = maxPartecipants;
   }
 
+
   @Override
   public String toString() {
     return "Event{" +
-            "id=" + id +
             ", title='" + title + '\'' +
             ", eventDate=" + eventDate +
             ", eventType=" + eventType +
             ", maxPartecipants=" + maxPartecipants +
+            "location=" + location +
             '}';
   }
 }
