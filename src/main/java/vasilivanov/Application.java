@@ -1,8 +1,9 @@
 package vasilivanov;
 
-import vasilivanov.entities.Event;
 import vasilivanov.entities.EventDAO;
-import vasilivanov.enums.EventType;
+import vasilivanov.entities.User;
+import vasilivanov.entities.UserDAO;
+import vasilivanov.enums.Sex;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -18,11 +19,10 @@ public class Application {
     try {
 
       EventDAO sd = new EventDAO(em);
-      Event event1 = new Event("Event test 2", "28/10/2023", EventType.PUBLIC, 30);
+      UserDAO ud = new UserDAO(em);
+      User user1 = new User("Franco", "Primo", "franco@gmail.com", "27/10/2002", Sex.MALE);
 
-
-      sd.deleteEventById(4);
-
+      ud.save(user1);
     } catch (Exception ex) {
       System.err.println(ex.getMessage());
     } finally {

@@ -17,6 +17,9 @@ public class Event {
   @Enumerated(EnumType.STRING)
   private EventType eventType;
   private int maxPartecipants;
+  @OneToOne
+  @JoinColumn(name = "location_id")
+  private Location location;
 
   public Event() {
   }
