@@ -5,6 +5,7 @@ import vasilivanov.enums.EventType;
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.Set;
 
 @Entity
 @Table(name = "events")
@@ -20,6 +21,8 @@ public class Event {
   @OneToOne
   @JoinColumn(name = "location_id")
   private Location location;
+  @OneToMany(mappedBy = "event", cascade = CascadeType.ALL)
+  private Set<Partecipation> partecipationList;
 
   public Event() {
   }

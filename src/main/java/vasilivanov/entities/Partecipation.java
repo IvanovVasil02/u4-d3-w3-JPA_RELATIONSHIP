@@ -16,7 +16,7 @@ public class Partecipation {
   @Enumerated(EnumType.STRING)
   private PartecipationStatus status;
 
-  @OneToOne
+  @ManyToOne
   @JoinColumn(name = "event_id")
   private Event event;
 
